@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import purple from '@material-ui/core/colors/purple';
+import { Button, ThemeProvider, createTheme } from '@material-ui/core';
 
 function App() {
+  const theme = createTheme({
+    pallete: {
+      primary: {
+        main: purple[500],
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+    </ThemeProvider>
   );
 }
 
